@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:roken_raha/features/Splah/presentation/widgets/aya_text.dart';
 
 import '../../../../core/theme/app_colors.dart';
