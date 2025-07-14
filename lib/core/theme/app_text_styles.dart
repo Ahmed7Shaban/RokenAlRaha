@@ -9,4 +9,4 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
-}
+} //
