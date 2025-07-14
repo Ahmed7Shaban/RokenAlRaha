@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
+import 'routes/app_routes.dart';
+import 'routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: Routes.splash,
+
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -20,25 +25,10 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar', 'en'),
-      home: const MyHomePage(),
+      builder: (context, child) {
+        return Directionality(textDirection: TextDirection.rtl, child: child!);
+      },
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).appTitle)),
-      body: Center(
-        child: Text(
-          S.of(context).homePageTitle,
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
     );
   }
 }
