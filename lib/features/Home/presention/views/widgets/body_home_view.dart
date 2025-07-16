@@ -25,6 +25,7 @@ class BodyHomeView extends StatelessWidget {
 
           SubTitle(),
           HomeServicesGrid(),
+          const SizedBox(height: 12),
         ],
       ),
     );

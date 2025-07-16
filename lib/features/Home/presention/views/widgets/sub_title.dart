@@ -8,7 +8,7 @@ class SubTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
       child: Text(
         'استكشف مميزات ركن الراحة',
         style: AppTextStyles.sectionTitle,

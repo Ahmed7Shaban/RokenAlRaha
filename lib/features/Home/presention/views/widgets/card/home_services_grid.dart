@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:roken_raha/features/Home/presention/views/widgets/card/card_services.dart';
+import '../../../../date/service_items_list.dart';
+import '../card/card_services.dart';
 
 class HomeServicesGrid extends StatelessWidget {
   const HomeServicesGrid({super.key});
@@ -12,48 +13,16 @@ class HomeServicesGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       crossAxisSpacing: 15,
       mainAxisSpacing: 20,
-      children: const [
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-        CardServices(
-          iconPath: 'assets/Images/petik.svg',
-          label: 'القرآن الكريم',
-        ),
-      ],
+      children: List.generate(serviceItemsList.length, (index) {
+        final item = serviceItemsList[index];
+        return CardServices(
+          item: item,
+          index: index,
+          onTap: () {
+            Navigator.pushNamed(context, item.route);
+          },
+        );
+      }),
     );
   }
 }

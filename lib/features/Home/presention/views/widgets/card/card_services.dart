@@ -1,17 +1,18 @@
-// lib/features/home/widgets/feature_card.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../../models/service_item.dart';
 
 class CardServices extends StatelessWidget {
-  final String iconPath;
-  final String label;
-  final VoidCallback? onTap;
+  final ServiceItem item;
+  final int index;
+  final VoidCallback onTap;
 
   const CardServices({
     super.key,
-    required this.iconPath,
-    required this.label,
-    this.onTap,
+    required this.item,
+    required this.index,
+    required this.onTap,
   });
 
   @override
@@ -30,7 +31,7 @@ class CardServices extends StatelessWidget {
             ),
             child: Center(
               child: SvgPicture.asset(
-                iconPath,
+                item.iconPath,
                 width: 35,
                 height: 35,
                 color: const Color(0xFF8F55EC),
@@ -39,12 +40,13 @@ class CardServices extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            label,
+            item.label,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey[700],
+            style: GoogleFonts.cairo(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFF4A4A4A),
+              height: 1.3,
             ),
           ),
         ],
