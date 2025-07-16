@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../features/Home/presention/views/home_view.dart';
 import '../features/Splah/presentation/views/splah_view.dart';
 
 class AppRouter {
@@ -8,8 +9,8 @@ class AppRouter {
       case SplahView.routeName:
         return MaterialPageRoute(builder: (_) => const SplahView());
 
-      // case HomeView.routeName:
-      //   return MaterialPageRoute(builder: (_) => const HomeView());
+      case HomeView.routeName:
+        return MaterialPageRoute(builder: (_) => const HomeView());
 
       // case CheckoutView.routeName:
       //   final cart = settings.arguments as CartEntity;

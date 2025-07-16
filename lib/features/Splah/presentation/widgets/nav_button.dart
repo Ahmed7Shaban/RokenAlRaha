@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:roken_raha/core/theme/app_colors.dart';
+
+import '../../../../core/theme/app_colors.dart';
+import '../../../../routes/routes.dart';
 
 class NavButton extends StatelessWidget {
   const NavButton({super.key});
@@ -8,7 +10,7 @@ class NavButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // انتقل إلى الشاشة التالية
+        Navigator.pushReplacementNamed(context, Routes.home);
       },
       child: Container(
         padding: const EdgeInsets.all(12),
