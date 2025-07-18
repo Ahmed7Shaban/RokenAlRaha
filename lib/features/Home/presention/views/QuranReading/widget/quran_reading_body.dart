@@ -12,7 +12,17 @@ class QuranReadingBody extends StatelessWidget {
     return Column(
       children: [
         AppbarWidget(title: 'اقرأ القرآن'),
-        SurahCard(),
+
+        Expanded(
+          child: ListView.builder(
+            //   shrinkWrap: true,
+            //   physics: NeverScrollableScrollPhysics(),
+            itemCount: 114, // Total number of Surahs in the Quran
+            itemBuilder: (context, index) {
+              return SurahCard();
+            },
+          ),
+        ),
       ],
     );
   }
