@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:roken_raha/core/widgets/appbar_widget.dart';
 
-import '../../../../../core/theme/app_colors.dart';
 import 'dynamic_content_box.dart';
-import 'card/card_services.dart';
 import 'card/home_services_grid.dart';
 import 'sub_title.dart';
 
@@ -17,7 +14,7 @@ class BodyHomeView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppbarWidget(),
+          AppbarWidget(title: 'ركن الراحة'),
 
           const SizedBox(height: 12),
 

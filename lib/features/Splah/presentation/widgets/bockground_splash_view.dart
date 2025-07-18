@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:roken_raha/features/Splah/presentation/widgets/app_title.dart';
 
+import '../../../../source/app_images.dart';
+
 class BockgroundSplashView extends StatelessWidget {
   const BockgroundSplashView({super.key});
 
@@ -11,9 +13,9 @@ class BockgroundSplashView extends StatelessWidget {
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/Images/backgroundSplash.jpg'),
+              image: AssetImage(Assets.imagesBackgroundSplash),
               fit: BoxFit.cover,
             ),
           ),

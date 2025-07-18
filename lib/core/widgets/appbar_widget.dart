@@ -3,7 +3,8 @@ import '../theme/app_colors.dart';
 import 'title_appbar.dart';
 
 class AppbarWidget extends StatelessWidget {
-  const AppbarWidget({super.key});
+  const AppbarWidget({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +17,10 @@ class AppbarWidget extends StatelessWidget {
           bottomLeft: Radius.circular(70),
           bottomRight: Radius.circular(70),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            offset: Offset(0, 4),
-            blurRadius: 10,
-          ),
-        ],
       ),
-      child: const Padding(
-        padding: EdgeInsets.only(top: 60),
-        child: Center(child: TitleAppbar()),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 60),
+        child: Center(child: TitleAppbar(title: title)),
       ),
     );
   }

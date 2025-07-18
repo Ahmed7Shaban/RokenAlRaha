@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:roken_raha/core/theme/app_text_styles.dart';
 
 class TitleAppbar extends StatelessWidget {
-  const TitleAppbar({super.key});
+  final String title;
+
+  const TitleAppbar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'ركن الراحة',
+      title,
       style: AppTextStyles.appBarTitleStyle,
       textAlign: TextAlign.center,
     );

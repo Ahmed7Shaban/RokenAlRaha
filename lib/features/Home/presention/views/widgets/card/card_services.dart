@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../models/service_item.dart';
 
@@ -30,12 +29,7 @@ class CardServices extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: Center(
-              child: SvgPicture.asset(
-                item.iconPath,
-                width: 35,
-                height: 35,
-                color: const Color(0xFF8F55EC),
-              ),
+              child: Image.asset(item.iconPath, width: 50, height: 50),
             ),
           ),
           const SizedBox(height: 6),

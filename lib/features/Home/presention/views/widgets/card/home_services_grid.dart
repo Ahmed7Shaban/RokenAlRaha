@@ -20,6 +20,7 @@ class HomeServicesGrid extends StatelessWidget {
           index: index,
           onTap: () {
             Navigator.pushNamed(context, item.route);
+            print("object: ${item.route}"); // Debugging line to check the route
           },
         );
       }),

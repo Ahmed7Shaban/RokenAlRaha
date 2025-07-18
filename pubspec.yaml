@@ -44,10 +44,12 @@ dependencies:
   audioplayers: ^6.5.0
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
+  http: ^1.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -91,3 +93,8 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 flutter_intl:
   enabled: true
+flutter_assets:
+  assets_path: assets/Images/
+  output_path: lib/source/
+  filename: app_images.dart
+  field_prefix:
