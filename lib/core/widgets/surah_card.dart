@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../routes/routes.dart';
+
 import '../../models/surah_model.dart';
 import '../../source/app_images.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_styles.dart';
 
 class SurahCard extends StatelessWidget {
-  const SurahCard({super.key});
+  final SurahModel surah;
+  final VoidCallback onTap;
+  const SurahCard({super.key, required this.surah, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    //final String iconPath = revelationType == 'مكي'
-    //  ? Assets.imagesKaaba
-    // : Assets.imagesMosque;
+    final String iconPath = surah.revelationType == 'Meccan'
+        ? Assets.imagesKaaba
+        : Assets.imagesMosque;
 
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, Routes.surahDetail);
-        },
+        onTap: onTap,
+
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
           decoration: BoxDecoration(
@@ -38,11 +39,11 @@ class SurahCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'الفاتحة',
+                      surah.name,
                       style: AppTextStyles.titleStyle.copyWith(fontSize: 26),
                     ),
                     const SizedBox(width: 35),
-                    Image.asset(Assets.imagesKaaba, width: 30),
+                    Image.asset(iconPath, width: 30),
                   ],
                 ),
               ),
@@ -50,9 +51,9 @@ class SurahCard extends StatelessWidget {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  SvgPicture.asset(Assets.imagesNumberAya, width: 40),
+                  
                   Text(
-                    '1'.toString(),
+                    surah.number.toString(),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],

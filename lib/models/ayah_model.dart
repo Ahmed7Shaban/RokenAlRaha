@@ -1,15 +1,19 @@
 class AyahModel {
   final int number;
   final String text;
-  final String? audio;
+  final int numberInSurah;
 
-  AyahModel({required this.number, required this.text, this.audio});
+  AyahModel({
+    required this.number,
+    required this.text,
+    required this.numberInSurah,
+  });
 
   factory AyahModel.fromJson(Map<String, dynamic> json) {
     return AyahModel(
-      number: json['number'] ?? 0,
-      text: json['text'] ?? '',
-      audio: json['audio'], // ممكن تبقى null
+      number: json['number'],
+      text: json['text'],
+      numberInSurah: json['numberInSurah'],
     );
   }
 }

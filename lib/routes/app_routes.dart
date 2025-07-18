@@ -4,7 +4,6 @@ import '../features/Home/presention/views/QuranReading/quran_reading_view.dart';
 import '../features/Home/presention/views/home_view.dart';
 import '../features/Home/presention/views/surah_detail_view.dart';
 import '../features/Splah/presentation/views/splah_view.dart';
-import '../models/surah_model.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -18,9 +17,15 @@ class AppRouter {
       case QuranReadingView.routeName:
         return MaterialPageRoute(builder: (_) => const QuranReadingView());
 
-      case SurahDetailView.routeName:
-        return MaterialPageRoute(builder: (_) => SurahDetailView());
-
+      // case SurahDetailView.routeName:
+      //   final args = settings.arguments as Map<String, dynamic>;
+      //   return MaterialPageRoute(
+      //     builder: (_) => SurahDetailView(
+      //       surahNumber: args['number'],
+      //       surahName: args['name'],
+      //       ayahCount: args['ayahCount'],
+      //     ),
+      //   );
       // case CheckoutView.routeName:
       //   final cart = settings.arguments as CartEntity;
       //   return MaterialPageRoute(

@@ -11,16 +11,17 @@ class AppbarWidget extends StatelessWidget {
     return Container(
       height: 250,
       width: double.infinity,
-      decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(70),
-          bottomRight: Radius.circular(70),
-        ),
-      ),
       child: Padding(
         padding: const EdgeInsets.only(top: 60),
         child: Center(child: TitleAppbar(title: title)),
+      ),
+      decoration: BoxDecoration(
+        color: AppColors.primaryColor,
+
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
       ),
     );
   }
