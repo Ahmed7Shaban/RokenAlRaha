@@ -9,9 +9,9 @@ final List<ServiceItem> serviceItemsList = [
     route: Routes.quranReading,
   ),
   ServiceItem(
-    iconPath: Assets.imagesBookmark,
-    label: 'أكمِل قراءتك',
-    route: '/quran',
+    iconPath: Assets.playAyah,
+    label: 'استمع للآيات',
+    route:  Routes.ayahAudio,
   ),
   ServiceItem(
     iconPath: Assets.imagesHeadphones,

@@ -49,9 +49,10 @@ class SurahCard extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               Stack(
+
                 alignment: Alignment.center,
                 children: [
-                  
+                  SvgPicture.asset(Assets.imagesNumberAya),
                   Text(
                     surah.number.toString(),
                     style: const TextStyle(color: Colors.white),

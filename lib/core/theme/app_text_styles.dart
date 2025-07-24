@@ -51,4 +51,24 @@ class AppTextStyles {
     height: 1.4,
     letterSpacing: 0.3,
   );
+
+  static final ayahTextStyle = GoogleFonts.amiri(
+  fontSize: 24,
+  color: Colors.black,
+  height: 2.3,
+  fontWeight: FontWeight.bold,
+  shadows: const [
+  Shadow(
+  color: Colors.black26,
+  offset: Offset(1, 1),
+  blurRadius: 2,
+  ),
+  ],
+  );
+  static const ayahNumberStyle = TextStyle(
+    fontSize: 15,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+
 } //

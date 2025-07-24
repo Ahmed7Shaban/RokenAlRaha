@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'cubit/ayah_cubit/ayah_cubit.dart';
 import 'cubit/surah_cubit/surah_cubit.dart';
+import 'features/Home/cubit/actionCubit/action_bottom_cubit.dart';
 import 'services/ayah_service.dart';
 import 'services/surah_service.dart';
 import 'generated/l10n.dart';
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => SurahCubit(SurahService())..fetchSurahs()),
         BlocProvider(
-          create: (_) => AyahCubit(AyahService()),
-        ), // BlocProvider(create: (_) => AnotherCubit()),
+          create: (_) => AyahCubit(AyahService())
+        ),  BlocProvider(create: (_) => ActionBottomCubit()),
       ],
       child: MaterialApp(
         onGenerateRoute: AppRouter.onGenerateRoute,

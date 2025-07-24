@@ -81,5 +81,29 @@ class Assets {
   /// Assets for imagesWudu
   /// assets/Images/wudu.png
   static const String imagesWudu = "assets/Images/wudu.png";
+
+  /// Assets for imagesplayAyah
+  /// assets/Images/playAyah.png
+  static const String playAyah = "assets/Images/playAyah.png";
+
+  /// Assets for saved
+  /// assets/Images/saved.png
+  static const String saved = "assets/Images/saved.png";
+
+  /// Assets for save
+  /// assets/Images/save.png
+  static const String save = "assets/Images/Save.png";
+
+  /// Assets for like
+  /// assets/Images/like.png
+  static const String like = "assets/Images/like.png";
+
+  /// Assets for liked
+  /// assets/Images/liked.png
+  static const String liked = "assets/Images/liked.png";
+
+  /// Assets for share
+  /// assets/Images/share.png
+  static const String share = "assets/Images/share.png";
 }
 
