@@ -3,6 +3,7 @@ import 'package:roken_raha/core/theme/app_colors.dart';
 import 'package:roken_raha/core/widgets/surah_card.dart';
 
 import '../../../../../../core/widgets/appbar_widget.dart';
+import '../../../../../../core/widgets/surah_list_view.dart';
 
 class QuranReadingBody extends StatelessWidget {
   const QuranReadingBody({super.key});
@@ -14,15 +15,10 @@ class QuranReadingBody extends StatelessWidget {
         AppbarWidget(title: 'اقرأ القرآن'),
 
         Expanded(
-          child: ListView.builder(
-            //   shrinkWrap: true,
-            //   physics: NeverScrollableScrollPhysics(),
-            itemCount: 114, // Total number of Surahs in the Quran
-            itemBuilder: (context, index) {
-              return SurahCard();
-            },
-          ),
+          child:SurahListView()
+
         ),
+
       ],
     );
   }
