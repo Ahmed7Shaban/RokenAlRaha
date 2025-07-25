@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'cubit/ayah_cubit/ayah_cubit.dart';
 import 'cubit/surah_cubit/surah_cubit.dart';
 import 'features/Home/cubit/actionCubit/action_bottom_cubit.dart';
+import 'features/Home/presention/views/SurahAudio/cubit/audio_sequence_cubit.dart';
 import 'services/ayah_service.dart';
 import 'services/surah_service.dart';
 import 'generated/l10n.dart';

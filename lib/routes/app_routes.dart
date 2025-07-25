@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../features/Home/presention/views/AyahAudio/ayah_audio_view.dart';
 import '../features/Home/presention/views/QuranReading/quran_reading_view.dart';
+import '../features/Home/presention/views/SurahAudio/surah_audio_view.dart';
 import '../features/Home/presention/views/home_view.dart';
 import '../features/Home/presention/views/QuranReading/widget/surah_detail_view.dart';
 import '../features/Splah/presentation/views/splah_view.dart';
@@ -20,7 +21,11 @@ class AppRouter {
  case AyahAudioView.routeName:
         return MaterialPageRoute(builder: (_) => const AyahAudioView());
 
-      // case SurahDetailView.routeName:
+
+      case SurahAudioView.routeName:
+        return MaterialPageRoute(builder: (_) => const SurahAudioView());
+
+    // case SurahDetailView.routeName:
       //   final args = settings.arguments as Map<String, dynamic>;
       //   return MaterialPageRoute(
       //     builder: (_) => SurahDetailView(

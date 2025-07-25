@@ -16,6 +16,6 @@ final List<ServiceItem> serviceItemsList = [
   ServiceItem(
     iconPath: Assets.imagesHeadphones,
     label: 'استمع للقرآن',
-    route: '/quran',
+    route: Routes.surahAudio,
   ),
 ];

@@ -11,7 +11,8 @@ class AudioPlayerManager {
 
   void setActivePlayer(AudioPlayer player) {
     if (_currentPlayer != null && _currentPlayer != player) {
-      _currentPlayer!.stop(); // نوقف القديم
+      _currentPlayer!.stop();
+      _currentPlayer!.dispose(); // تنظيف اللاعب السابق
     }
     _currentPlayer = player;
   }
@@ -21,4 +22,19 @@ class AudioPlayerManager {
       _currentPlayer = null;
     }
   }
+
+  void stopCurrentPlayer() {
+    _currentPlayer?.stop();
+  }
+
+  void disposeCurrentPlayer() {
+    _currentPlayer?.dispose();
+    _currentPlayer = null;
+  }
+
+  bool isActive(AudioPlayer player) {
+    return _currentPlayer == player;
+  }
+
+  bool get hasActivePlayer => _currentPlayer != null;
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
 import '../../../../../../core/widgets/ayah_text.dart';
 import '../../../../../../source/app_images.dart';
+import '../cubit/audio_player_cubit.dart';
 import 'ayah_action_buttons.dart';
 import 'ayah_audio_player.dart';
 
@@ -58,7 +60,11 @@ class AyahCard extends StatelessWidget {
             AyahText(ayahText: ayahText),
             const SizedBox(height: 20),
             if (audioUrl.isNotEmpty)
-              AyahAudioPlayer(audioUrl: audioUrl),
+             // AyahAudioPlayer(audioUrl: audioUrl),
+    BlocProvider(
+    create: (_) => AudioPlayerCubit(),
+    child: AyahAudioPlayer(audioUrl: audioUrl),
+    ),
           ],
         ),
       ),
