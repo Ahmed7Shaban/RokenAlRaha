@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roken_raha/core/theme/app_colors.dart';
 import 'package:roken_raha/core/widgets/surah_card.dart';
+import 'package:roken_raha/features/Home/presention/views/QuranReading/widget/surah_detail_view.dart';
 
 import '../../../../../../core/widgets/appbar_widget.dart';
 import '../../../../../../core/widgets/surah_list_view.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_cubit.dart';
-import 'surah_detail_view.dart';
 
 class QuranReadingBody extends StatelessWidget {
   const QuranReadingBody({super.key});
@@ -34,8 +34,6 @@ class QuranReadingBody extends StatelessWidget {
         ),
       ],
     );
-
-
 
   }
 }

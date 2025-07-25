@@ -1,61 +1,81 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'dart:async';
 
 part 'audio_player_state.dart';
 
 class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   static final AudioPlayer _player = AudioPlayer();
   String? _currentUrl;
+  StreamSubscription<Duration>? _progressSubscription;
+
+  // ✅ Getter لحالة الصوت الحالي
+  String? get currentUrl => _currentUrl;
 
   AudioPlayerCubit() : super(AudioPlayerInitial()) {
-    // الاستماع لانتهاء الصوت
-    _player.playerStateStream.listen((state) {
-      if (state.processingState == ProcessingState.completed) {
-        emit(AudioPlayerStopped());
+    print("🟡 AudioPlayerCubit initialized");
+
+    // ✅ استماع لحالة انتهاء الصوت
+    _player.playerStateStream.listen((playerState) {
+      final isCompleted = playerState.processingState == ProcessingState.completed;
+      final isPlaying = playerState.playing;
+
+      print("🎯 playerState changed → playing: $isPlaying, completed: $isCompleted, state: ${playerState.processingState}");
+
+      if (isCompleted && !isPlaying) {
+        print("✅ AudioPlayerCompleted");
+        emit(AudioPlayerCompleted());
+        emit(AudioPlayerProgress(0.0)); // رجّع الشريط للصفر
+      }
+    });
+
+    // ✅ استماع لتقدّم الصوت
+    _progressSubscription = _player.positionStream.listen((position) {
+      final duration = _player.duration ?? Duration.zero;
+
+      print("📍 positionStream updated → position: $position / duration: $duration");
+
+      if (duration.inMilliseconds > 0) {
+        final progress = position.inMilliseconds / duration.inMilliseconds;
+        print("⏱️ Progress Emitted: $progress");
+        emit(AudioPlayerProgress(progress));
       }
     });
   }
 
-  Future<void> play(String url) async {
-    try {
-      if (_currentUrl == url && _player.playing) {
-        await _player.stop();
-        emit(AudioPlayerStopped());
-        return;
-      }
+  // ✅ تشغيل أو إيقاف الصوت
+  Future<void> togglePlay(String url) async {
+    print("🚀 togglePlay triggered with URL: $url");
 
-      emit(AudioPlayerLoading());
+    if (_currentUrl == url && _player.playing) {
+      print("⏸️ Pausing current audio");
+      await _player.pause();
+      emit(AudioPlayerPaused());
+    } else {
+      try {
+        emit(AudioPlayerLoading());
+        print("🔄 Loading audio: $url");
 
-      if (_player.playing) {
-        await _player.stop();
-      }
-
-      _currentUrl = url;
-      await _player.setUrl(url);
-
-      await _player.play();
-
-      // ✨ ننتظر لحد ما يبقى فعلاً شغال (حالة playing)
-      _player.playerStateStream.listen((state) {
-        if (state.playing && state.processingState == ProcessingState.ready) {
-          emit(AudioPlayerPlaying(url));
+        if (_currentUrl != url) {
+          print("📦 New audio detected. Setting URL...");
+          _currentUrl = url;
+          await _player.setUrl(url);
         }
-      }).onError((e) {
-        emit(AudioPlayerError("خطأ أثناء التشغيل"));
-      });
 
-    } catch (e) {
-      emit(AudioPlayerError("حدث خطأ أثناء تشغيل الصوت"));
+        await _player.play();
+        emit(AudioPlayerPlaying());
+        print("▶️ AudioPlayerPlaying");
+      } catch (e) {
+        print("❌ AudioPlayerError: $e");
+        emit(AudioPlayerError("حدث خطأ أثناء تشغيل الصوت"));
+      }
     }
-  }
-
-  Future<void> stop() async {
-    await _player.stop();
-    emit(AudioPlayerStopped());
   }
 
   @override
   Future<void> close() {
+    print("🧹 AudioPlayerCubit disposed");
+    _progressSubscription?.cancel();
     _player.dispose();
     return super.close();
   }
