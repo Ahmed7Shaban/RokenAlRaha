@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:just_audio/just_audio.dart';
 
 import 'audio_sequence_state.dart';
@@ -8,7 +7,6 @@ import 'audio_sequence_state.dart';
 class AudioSequenceCubit extends Cubit<AudioSequenceState> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   final List<String> audioUrls;
-  final Connectivity _connectivity = Connectivity();
 
   int _currentIndex = 0;
   bool isActuallyLoading = false;
@@ -39,17 +37,6 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
       }
     });
 
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen((result) async {
-      if (result != ConnectivityResult.none) {
-        print("📶 Internet is back. Retrying audio...");
-        if (state is AudioSequenceError) {
-          await _retryCurrent();
-        }
-      } else {
-        print("⚠️ Internet connection lost!");
-        emit(AudioSequenceNoConnection());
-      }
-    });
   }
 
   Future<void> playSequence() async {

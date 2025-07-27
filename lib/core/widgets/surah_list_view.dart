@@ -4,6 +4,7 @@ import 'package:roken_raha/core/widgets/surah_card.dart';
 
 import '../../cubit/surah_cubit/surah_cubit.dart';
 import '../../cubit/surah_cubit/surah_state.dart';
+import 'lottie_loader.dart';
 
 class SurahListView extends StatelessWidget {
   const SurahListView({super.key, required this.onTap});
@@ -15,7 +16,7 @@ class SurahListView extends StatelessWidget {
     return BlocBuilder<SurahCubit, SurahState>(
       builder: (context, state) {
         if (state is SurahLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const LottieLoader();
         } else if (state is SurahError) {
           return Center(child: Text(state.message));
         } else if (state is SurahLoaded) {

@@ -71,4 +71,11 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static final TextStyle bodyStyle = GoogleFonts.cairo(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    height: 1.4,
+  );
+
 } //

@@ -24,9 +24,20 @@ class SurahModel {
       englishName: json['englishName'],
       englishNameTranslation: json['englishNameTranslation'],
       revelationType: json['revelationType'],
-      ayahs: (json['ayahs'] as List)
-          .map((e) => AyahModel.fromJson(e))
+      ayahs: (json['ayahs'] as List<dynamic>)
+          .map((e) => AyahModel.fromJson(Map<String, dynamic>.from(e)))
           .toList(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'number': number,
+      'name': name,
+      'englishName': englishName,
+      'englishNameTranslation': englishNameTranslation,
+      'revelationType': revelationType,
+      'ayahs': ayahs.map((e) => e.toJson()).toList(),
+    };
   }
 }

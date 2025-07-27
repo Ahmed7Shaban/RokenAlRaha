@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../../../date/service_items_list.dart';
+import '../../../../models/service_item.dart';
 import '../card/card_services.dart';
 
-class HomeServicesGrid extends StatelessWidget {
-  const HomeServicesGrid({super.key});
-
+class ServicesGrid extends StatelessWidget {
+  const ServicesGrid({super.key, required this.list});
+  final List<ServiceItem> list;
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -13,8 +14,8 @@ class HomeServicesGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       crossAxisSpacing: 15,
       mainAxisSpacing: 20,
-      children: List.generate(serviceItemsList.length, (index) {
-        final item = serviceItemsList[index];
+      children: List.generate(list.length, (index) {
+        final item = list[index];
         return CardServices(
           item: item,
           index: index,

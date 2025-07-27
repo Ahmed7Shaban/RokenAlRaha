@@ -4,6 +4,7 @@ import 'package:roken_raha/services/ayah_service.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/lottie_loader.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_cubit.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_state.dart';
 import 'ayah_card.dart';
@@ -43,9 +44,7 @@ class AyatOfSurah extends StatelessWidget {
         child: BlocBuilder<AyahCubit, AyahState>(
           builder: (context, state) {
             if (state is AyahLoading) {
-              return const Center(
-                child: CircularProgressIndicator(color: AppColors.primaryColor),
-              );
+              return const LottieLoader();
             } else if (state is AyahLoaded) {
               final ayat = state.ayahList;
               return ListView.builder(

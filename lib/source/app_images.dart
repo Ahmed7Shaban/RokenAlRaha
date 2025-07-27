@@ -105,5 +105,89 @@ class Assets {
   /// Assets for share
   /// assets/Images/share.png
   static const String share = "assets/Images/share.png";
+
+  /// Assets for tasbihList
+  /// assets/Images/tasbihList.png
+  static const String tasbihList = "assets/Images/tasbihList.png";
+
+  /// Assets for allah
+  /// assets/Images/allah.png
+  static const String allah = "assets/Images/allah.png";
+
+  /// Assets for hamed
+  /// assets/Images/hamed.png
+  static const String hamed = "assets/Images/hamed.png";
+
+  /// Assets for dua
+  /// assets/Images/dua.png
+  static const String dua = "assets/Images/dua.png";
+
+  /// Assets for duaQ
+  /// assets/Images/duaQ.png
+  static const String duaQ = "assets/Images/duaQ.png";
+
+  /// Assets for premium
+  /// assets/Images/premium.png
+  static const String premium = "assets/Images/premium.png";
+
+  /// Assets for whale
+  /// assets/Images/whale.png
+  static const String whale = "assets/Images/whale.png";
+
+  /// Assets for muhammad
+  /// assets/Images/muhammad.png
+  static const String muhammad = "assets/Images/muhammad.png";
+
+  /// Assets for Ruqyah
+  /// assets/Images/Ruqyah.png
+  static const String Ruqyah = "assets/Images/Ruqyah.png";
+
+  /// Assets for azkar
+  /// assets/Images/azkar.png
+  static const String azkar = "assets/Images/azkar.png";
+
+  /// Assets for mosque1 - دخول المسجد
+  /// assets/Images/mosque1.png
+  static const String mosque1 = "assets/Images/mosque1.png";
+
+  /// Assets for mosque1 - الخروج من المسجد
+  /// assets/Images/mosque1.png
+  static const String mosqueExit = "assets/Images/mosque1.png";
+
+  /// Assets for open - دخول المنزل
+  /// assets/Images/open.png
+  static const String open = "assets/Images/open.png";
+
+  /// Assets for draw - الخروج من المنزل
+  /// assets/Images/draw.png
+  static const String draw = "assets/Images/draw.png";
+
+  /// Assets for travel - السفر
+  /// assets/Images/travel.png
+  static const String travel = "assets/Images/travel.png";
+
+  /// Assets for wc - دخول الخلاء
+  /// assets/Images/wc.png
+  static const String wcEnter = "assets/Images/wc.png";
+
+  /// Assets for wc - الخروج من الخلاء
+  /// assets/Images/wc.png
+  static const String wcExit = "assets/Images/wc.png";
+
+  /// Assets for transport - دعاء الركوب
+  /// assets/Images/transport.png
+  static const String transport = "assets/Images/transport.png";
+
+  /// Assets for Stkara - دعاء الاستخارة
+  /// assets/Images/stkara.png
+  static const String stkara = "assets/Images/Stkara.png";
+
+  /// Assets for rain - دعاء المطر
+  /// assets/Images/rain.png
+  static const String rain = "assets/Images/rain.png";
+
+  /// Assets for note
+  /// assets/Images/note.png
+  static const String note = "assets/Images/note.png";
 }
 

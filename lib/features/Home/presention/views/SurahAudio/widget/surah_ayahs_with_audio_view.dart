@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:roken_raha/source/app_images.dart';
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/lottie_loader.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_cubit.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_state.dart';
 import '../cubit/audio_sequence_cubit.dart';
@@ -51,7 +52,7 @@ class _SurahAyahsWithAudioViewState extends State<SurahAyahsWithAudioView> {
       body: BlocBuilder<AyahCubit, AyahState>(
         builder: (context, state) {
           if (state is AyahLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const LottieLoader();
           } else if (state is AyahLoaded) {
             final ayatTexts = state.ayahList.map((a) => a.text).toList();
             final audioUrls = state.ayahList.map((a) => a.audio).toList();

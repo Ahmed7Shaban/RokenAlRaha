@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/lottie_loader.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_cubit.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_state.dart';
 import '../../../../../../models/surah_model.dart';
@@ -51,9 +52,7 @@ class _SurahDetailViewState extends State<SurahDetailView> {
       body: BlocBuilder<AyahCubit, AyahState>(
         builder: (context, state) {
           if (state is AyahLoading) {
-            return const Center(
-              child: CircularProgressIndicator(color: AppColors.primaryColor),
-            );
+            return const LottieLoader();
           } else if (state is AyahError) {
             return Center(child: Text(state.message, style: TextStyle(color: AppColors.primaryColor)));
           } else if (state is AyahLoaded) {
