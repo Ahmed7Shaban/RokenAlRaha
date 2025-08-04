@@ -1,4 +1,3 @@
-// lib/cubits/surah_cubit/surah_state.dart
 import '../../../models/surah_model.dart';
 
 abstract class SurahState {}
