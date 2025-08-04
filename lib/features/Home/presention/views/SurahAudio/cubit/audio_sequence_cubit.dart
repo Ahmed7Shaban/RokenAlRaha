@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:just_audio/just_audio.dart';
-
 import 'audio_sequence_state.dart';
 
 class AudioSequenceCubit extends Cubit<AudioSequenceState> {
@@ -10,6 +9,8 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
 
   int _currentIndex = 0;
   bool isActuallyLoading = false;
+  bool _hasShownSnackBar = false;
+  bool _hasStartedPlayback = false; // ✅ جديد
   StreamSubscription? _connectivitySubscription;
 
   AudioSequenceCubit({required this.audioUrls}) : super(AudioSequenceInitial()) {
@@ -33,10 +34,14 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
 
       if (state.processingState == ProcessingState.idle) {
         print("❌ Idle State: Possible error or network issue");
-        emit(AudioSequenceError());
+
+        // ✅ لا تظهر السناك بار إلا بعد بدء التشغيل فعليًا
+        if (_hasStartedPlayback && !_hasShownSnackBar) {
+          _hasShownSnackBar = true;
+          emit(AudioSequenceError());
+        }
       }
     });
-
   }
 
   Future<void> playSequence() async {
@@ -46,6 +51,8 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
     }
 
     print("▶️ Starting sequence playback...");
+    _hasShownSnackBar = false;
+    _hasStartedPlayback = true; // ✅ تم بدء التشغيل
     emit(AudioSequenceLoading());
 
     _currentIndex = 0;
@@ -62,12 +69,16 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
       emit(AudioSequencePlaying(index: _currentIndex));
     } catch (e) {
       print("❌ Error playing audio at index $_currentIndex: $e");
-      emit(AudioSequenceError());
+      if (!_hasShownSnackBar) {
+        _hasShownSnackBar = true;
+        emit(AudioSequenceError());
+      }
     }
   }
 
   Future<void> _retryCurrent() async {
     print("🔁 Retrying current audio...");
+    _hasShownSnackBar = false;
     emit(AudioSequenceLoading());
     await _playCurrent();
   }
@@ -79,6 +90,7 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
       await _playCurrent();
     } else {
       print("🏁 All audios played. Sequence complete.");
+      _hasStartedPlayback = false; // ✅ تم الانتهاء من التشغيل
       emit(AudioSequenceCompleted());
     }
   }
@@ -127,6 +139,7 @@ class AudioSequenceCubit extends Cubit<AudioSequenceState> {
     print("🧹 Disposing audio player and subscriptions...");
     _connectivitySubscription?.cancel();
     _audioPlayer.dispose();
+    _hasStartedPlayback = false; // ✅ Reset عند الإغلاق
     return super.close();
   }
 }

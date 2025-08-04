@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roken_raha/source/app_images.dart';
+import 'package:share_plus/share_plus.dart';
 
+import '../../../../../../storage/ayah_like_storage.dart';
 import '../../../../cubit/actionCubit/action_bottom_cubit.dart';
 import '../../../../cubit/actionCubit/action_bottom_state.dart';
+import '../../ayah_liked/cubit/ayah_like_cubit.dart';
+import '../../ayah_liked/model/ayah_like_model.dart';
 
 class ActionsButtons extends StatelessWidget {
-  const ActionsButtons({super.key});
+  const ActionsButtons({super.key, required this.ayahShare, required this.ayahNumber, required this.surahName, required this.ayahText, required this.audioUrl});
+final String ayahShare ;
+final int ayahNumber ;
+final String surahName ;
+  final String audioUrl;
 
+
+final String ayahText ;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ActionBottomCubit, ActionBottomState>(
@@ -17,25 +27,38 @@ class ActionsButtons extends StatelessWidget {
             _actionButton(
               imagePath: Assets.share,
               onTap: () {
-                // شارك الآية مثلاً
+                final String verse = ayahShare;
+                Share.share(verse);
               },
             ),
-            _actionButton(
-              imagePath: state.isLiked
-                  ? Assets.liked
-                  :Assets.like,
-              onTap: () {
-                context.read<ActionBottomCubit>().toggleLike();
+            BlocBuilder<AyahLikeCubit, AyahLikeState>(
+              builder: (context, state) {
+                bool isLiked = false;
+
+                if (state is AyahLikeLoaded) {
+                  isLiked = state.likedAyahs.any(
+                        (a) => a.surahName == surahName && a.ayahNumber == ayahNumber,
+                  );
+                }
+
+                return _actionButton(
+                  imagePath: isLiked ? Assets.liked : Assets.like,
+                  onTap: () {
+                    final likedAyah = AyahLikeModel(
+                      ayahNumber: ayahNumber,
+                      surahName: surahName,
+                      ayahText: ayahText,
+                    );
+
+                    context.read<AyahLikeCubit>().toggleLike(likedAyah);
+                  },
+                );
               },
             ),
-            _actionButton(
-              imagePath: state.isSaved
-                  ? Assets.saved
-                  : Assets.save,
-              onTap: () {
-                context.read<ActionBottomCubit>().toggleSave();
-              },
-            ),
+
+
+
+
           ],
         );
       },

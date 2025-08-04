@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../helpers/hive_ayah_storage.dart';
+import '../../storage/hive_ayah_storage.dart';
 import 'ayah_state.dart';
 import '../../services/ayah_service.dart';
 

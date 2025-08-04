@@ -18,6 +18,11 @@ final List<ServiceItem> serviceItemsList = [
     label: 'استمع للقرآن',
     route: Routes.surahAudio,
   ),
+  ServiceItem(
+    iconPath: Assets.liked,
+    label: 'الايات المفضلة',
+    route: Routes.AyahLiked,
+  ),
 
   ServiceItem(
     iconPath: Assets.imagesTasbih,

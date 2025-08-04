@@ -1,6 +1,6 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../helpers/hive_quran_storage.dart';
+import '../../storage/hive_quran_storage.dart';
 import 'surah_state.dart';
 import '../../../services/surah_service.dart';
 

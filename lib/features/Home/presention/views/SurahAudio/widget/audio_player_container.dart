@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roken_raha/core/widgets/lottie_loader.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 
@@ -69,7 +70,6 @@ class _AudioPlayerContainerState extends State<AudioPlayerContainer>
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ✅ شريط التقدم (جاهز للربط لاحقًا)
             Container(
               height: 6,
               width: double.infinity,
@@ -90,18 +90,10 @@ class _AudioPlayerContainerState extends State<AudioPlayerContainer>
             ),
             const SizedBox(height: 8),
 
-            // ✅ الزر والأنيميشن
             Row(
               children: [
                 widget.isLoading
-                    ? const SizedBox(
-                  width: 40,
-                  height: 40,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 3,
-                    color:AppColors.goldenYellow,
-                  ),
-                )
+                    ? LottieLoader(width: 50,height: 50,)
                     : ScaleTransition(
                   scale: _waveController,
                   child: Icon(
@@ -114,7 +106,6 @@ class _AudioPlayerContainerState extends State<AudioPlayerContainer>
                 ),
                 const SizedBox(width: 12),
 
-                // ✅ أعمدة متحركة أثناء التشغيل
                 if (widget.isPlaying)
                   AnimatedBuilder(
                     animation: _waveController,

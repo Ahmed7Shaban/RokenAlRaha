@@ -99,6 +99,7 @@ flutter:
     - assets/lottie/Saved.json
     - assets/data/asmaa_allah.json
     - assets/lottie/dua.json
+    - assets/lottie/AudioPlaying.json
 
     # - assets/Sounds/StartSound.mp3
     

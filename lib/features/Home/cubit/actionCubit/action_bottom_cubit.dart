@@ -8,7 +8,4 @@ class ActionBottomCubit extends Cubit<ActionBottomState> {
     emit(state.copyWith(isLiked: !state.isLiked));
   }
 
-  void toggleSave() {
-    emit(state.copyWith(isSaved: !state.isSaved));
-  }
 }

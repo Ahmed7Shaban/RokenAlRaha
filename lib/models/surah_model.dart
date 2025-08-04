@@ -51,7 +51,7 @@ class SurahModel extends HiveObject {
 
 
 
-// import 'ayah_model.dart';
+// import 'ayah_like_model.dart';
 //
 // class SurahModel {
 //   final int number;

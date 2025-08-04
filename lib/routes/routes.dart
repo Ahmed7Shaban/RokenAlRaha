@@ -4,6 +4,7 @@ class Routes {
   static const String quranReading = '/quranReading';
   static const String ayahAudio = '/ayahAudio';
   static const String surahAudio = '/surahAudio';
+  static const String AyahLiked = '/AyahLiked';
   static const String tasbeehView = '/tasbeehView';
   static const String  istighfarView = '/istighfarView';
   static const String  SaveMasbaha = '/SaveMasbaha';

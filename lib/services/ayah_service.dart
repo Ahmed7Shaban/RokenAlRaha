@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../helpers/hive_ayah_storage.dart';
+import '../storage/hive_ayah_storage.dart';
 import '../models/ayah_model.dart';
 
 class AyahService {

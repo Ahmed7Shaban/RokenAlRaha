@@ -7,6 +7,7 @@ import '../../../../../../core/theme/app_text_styles.dart';
 import '../../../../../../core/widgets/lottie_loader.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_cubit.dart';
 import '../../../../../../cubit/ayah_cubit/ayah_state.dart';
+import '../cubit/audio_player_cubit.dart';
 import 'ayah_card.dart';
 
 class AyatOfSurah extends StatelessWidget {
@@ -39,14 +40,19 @@ class AyatOfSurah extends StatelessWidget {
         elevation: 12,
         shadowColor: AppColors.primaryColor,
       ),
-      body: BlocProvider(
-        create: (_) => AyahCubit(AyahService())..fetchAyahsBySurahNumber(surahNumber),
+
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => AyahCubit(AyahService())..fetchAyahsBySurahNumber(surahNumber)),
+          BlocProvider(create: (_) => AudioPlayerCubit()),
+        ],
         child: BlocBuilder<AyahCubit, AyahState>(
           builder: (context, state) {
             if (state is AyahLoading) {
               return const LottieLoader();
             } else if (state is AyahLoaded) {
               final ayat = state.ayahList;
+              final audioCubit = context.read<AudioPlayerCubit>();
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
                 itemCount: ayat.length,
@@ -55,7 +61,8 @@ class AyatOfSurah extends StatelessWidget {
                   return AyahCard(
                     ayahNumber: ayah.numberInSurah,
                     ayahText: ayah.text,
-                    audioUrl: ayah.audio ?? '', // تأكد إنه مش null
+                    audioUrl: ayah.audio ?? '',
+                    audioCubit: audioCubit, surahName: surahName,
                   );
                 },
               );
@@ -74,7 +81,7 @@ class AyatOfSurah extends StatelessWidget {
                 ),
               );
             }
-            return const SizedBox(); // حالة مبدئية فاضية
+            return const SizedBox(); // حالة مبدئية
           },
         ),
       ),

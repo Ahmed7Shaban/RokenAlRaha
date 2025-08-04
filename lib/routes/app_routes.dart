@@ -30,6 +30,7 @@ import '../features/Home/presention/views/SpecialAzkar/DuaYunus/dua_yunus_view.d
 import '../features/Home/presention/views/SpecialAzkar/Hawqalah/hawqalah_view.dart';
 import '../features/Home/presention/views/SpecialAzkar/SalatAlaNabi/salat_alnabi_view.dart';
 import '../features/Home/presention/views/SurahAudio/surah_audio_view.dart';
+import '../features/Home/presention/views/ayah_liked/ayah_liked.dart';
 import '../features/Home/presention/views/home_view.dart';
 import '../features/Splah/presentation/views/splah_view.dart';
 
@@ -49,6 +50,8 @@ class AppRouter {
 
       case SurahAudioView.routeName:
         return MaterialPageRoute(builder: (_) => const SurahAudioView());
+      case AyahLiked.routeName:
+        return MaterialPageRoute(builder: (_) => const AyahLiked());
 
       case TasbeehView.routeName:
         return MaterialPageRoute(builder: (_) => const TasbeehView());

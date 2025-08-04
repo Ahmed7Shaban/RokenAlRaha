@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../helpers/hive_quran_storage.dart';
+import '../storage/hive_quran_storage.dart';
 import '../models/surah_model.dart';
 import '../models/quran_response_model.dart';
 

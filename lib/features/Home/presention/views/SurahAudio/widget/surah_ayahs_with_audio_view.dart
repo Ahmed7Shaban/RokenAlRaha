@@ -118,7 +118,6 @@ SizedBox(height: 10,),
                         builder: (context, audioState) {
                           final cubit = context.read<AudioSequenceCubit>();
 
-                          // ✅ إظهار تنبيه لو حصل خطأ
                           if (audioState is AudioSequenceError) {
                             Future.microtask(() {
                               ScaffoldMessenger.of(context).showSnackBar(

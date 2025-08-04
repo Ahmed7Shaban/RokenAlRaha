@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
@@ -13,13 +12,17 @@ import 'ayah_audio_player.dart';
 class AyahCard extends StatelessWidget {
   final int ayahNumber;
   final String ayahText;
+  final String surahName;
   final String audioUrl;
+  final AudioPlayerCubit audioCubit;
 
   const AyahCard({
     super.key,
     required this.ayahNumber,
+    required this.surahName,
     required this.ayahText,
     required this.audioUrl,
+    required this.audioCubit,
   });
 
   @override
@@ -43,7 +46,7 @@ class AyahCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const ActionsButtons(),
+                ActionsButtons( ayahShare: ayahText, ayahNumber: ayahNumber, surahName: surahName, ayahText: ayahText, audioUrl: audioUrl,),
                 Stack(
                   alignment: Alignment.center,
                   children: [
@@ -57,14 +60,15 @@ class AyahCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
+
             AyahText(ayahText: ayahText),
             const SizedBox(height: 20),
+
             if (audioUrl.isNotEmpty)
-             // AyahAudioPlayer(audioUrl: audioUrl),
-    BlocProvider(
-    create: (_) => AudioPlayerCubit(),
-    child: AyahAudioPlayer(audioUrl: audioUrl),
-    ),
+              AyahAudioPlayer(
+                audioUrl: audioUrl,
+                audioCubit: audioCubit,
+              ),
           ],
         ),
       ),
