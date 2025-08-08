@@ -7,11 +7,12 @@ import '../../../../../../../../core/theme/app_colors.dart';
 class SelectTime extends StatefulWidget {
   final void Function(DateTime time) onTimeSelected;
   final DateTime initialTime;
+  final String dec;
 
   const SelectTime({
     super.key,
     required this.onTimeSelected,
-    required this.initialTime,
+    required this.initialTime, required this.dec,
   });
 
   @override
@@ -76,7 +77,7 @@ class _SelectTimeState extends State<SelectTime> {
           ),
           const SizedBox(height: 16),
           Text(
-            'مسموح من 5:00 إلى 11:59 صباحًا فقط',
+           widget. dec,
             style: GoogleFonts.cairo(
               textStyle: const TextStyle(fontSize: 14, color: Colors.grey),
             ),

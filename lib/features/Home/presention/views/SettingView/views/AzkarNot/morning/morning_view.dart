@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:roken_raha/core/widgets/lottie_loader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../../../../NotificationHelper/daily_notification_service.dart';
-import '../../../../../../../../NotificationHelper/unified_notification_service.dart';
 import '../../../../../../../../core/theme/app_colors.dart';
+import '../../../../../../../../core/widgets/lottie_loader.dart';
 import '../../../../../../../../routes/routes.dart';
 import '../../../../AllAzkar/date/morning_list.dart';
 import '../widget/body_nots_view.dart';
@@ -16,7 +15,7 @@ class MorningNotView extends StatelessWidget {
 
   Future<DateTime> _getStoredTimeOrNow() async {
     final prefs = await SharedPreferences.getInstance();
-    final storedTime = prefs.getString('daily_notification_time');
+    final storedTime = prefs.getString('morning_notification_time');
 
     if (storedTime != null) {
       final parts = storedTime.split(':');
@@ -30,18 +29,15 @@ class MorningNotView extends StatelessWidget {
     }
   }
 
-  String _getPermissionEmoji(dynamic permission) {
-    final permissionStr = permission.toString();
-    if (permissionStr.contains('granted')) return '✅';
-    if (permissionStr.contains('denied')) return '❌';
-    if (permissionStr.contains('restricted')) return '⚠️';
-    return '❓';
-  }
-
   @override
   Widget build(BuildContext context) {
     final DailyMessageNotificationService notificationService =
-    DailyMessageNotificationService(messages: morningAzkar);
+    DailyMessageNotificationService(
+      messages: morningAzkar,
+      notificationId: 7,
+      notificationTitle: '🌸 أذكار الصباح - ركن الراحة',
+      notificationKey: 'morning',
+    );
 
     return Scaffold(
       body: FutureBuilder<DateTime>(
@@ -81,7 +77,8 @@ class MorningNotView extends StatelessWidget {
                     final prefs = await SharedPreferences.getInstance();
                     final storedTime =
                         '${selectedTime.hour}:${selectedTime.minute.toString().padLeft(2, '0')}';
-                    await prefs.setString('daily_notification_time', storedTime);
+
+                    await prefs.setString('morning_notification_time', storedTime); // ✅ تم التعديل
 
                     await notificationService.init();
                     await notificationService.scheduleDailyNotificationFromStoredTime();
@@ -100,7 +97,9 @@ class MorningNotView extends StatelessWidget {
                         backgroundColor: AppColors.primaryColor,
                       ),
                     );
-                                    },
+                  },
+                  dec: '☀️ متاح من بعد الفجر حتى قبل الظهر، لا تنسَ أذكار الصباح!',
+
                 ),
               ),
             ],

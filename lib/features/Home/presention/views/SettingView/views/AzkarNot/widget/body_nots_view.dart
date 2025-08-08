@@ -7,8 +7,9 @@ import '../../../../widgets/sub_title.dart';
 import 'select_time.dart';
 
 class BodyNotsView extends StatefulWidget {
-  const BodyNotsView({super.key, required this.subTitle, required this.onTimeSelected, required this.initialTime});
+  const BodyNotsView({super.key, required this.subTitle, required this.onTimeSelected, required this.initialTime, required this.dec});
   final String subTitle;
+  final String dec;
   final DateTime initialTime;
   final void Function(DateTime time) onTimeSelected;
 
@@ -51,7 +52,9 @@ class _BodyNotsViewState extends State<BodyNotsView> {
                 selectedTime = time;
               });
               widget.onTimeSelected(time);
-            }, initialTime: widget.initialTime,
+            },
+            initialTime: widget.initialTime,
+            dec: widget.dec,
           ),
 
         ],

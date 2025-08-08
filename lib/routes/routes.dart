@@ -40,5 +40,6 @@ class Routes {
   static const String AzkarNot = '/AzkarNot';
   static const String MorningNot = '/MorningNot';
   static const String EveningNot = '/EveningNot';
+  static const String DhikrMohammed = '/DhikrMohammed';
 
 }

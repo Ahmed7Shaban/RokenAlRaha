@@ -37,7 +37,7 @@ class PrayerNotificationService {
           icon: '@mipmap/launcher_icon',
           playSound: true,
           enableVibration: true,
-          enableLights: false, // تعطيل الأضواء لتجنب الخطأ
+          enableLights: false,
           color: Color(0xFF2196F3),
           colorized: true,
           autoCancel: true,

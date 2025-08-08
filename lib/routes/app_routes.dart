@@ -31,6 +31,7 @@ import '../features/Home/presention/views/Ruqyah/ruqyah_view.dart';
 import '../features/Home/presention/views/SaveMasbaha/save_masbaha_view.dart';
 import '../features/Home/presention/views/SettingView/setting_view.dart';
 import '../features/Home/presention/views/SettingView/views/Adhan/adhan_view.dart';
+import '../features/Home/presention/views/SettingView/views/AzkarNot/DhikrMohammed/dhikr_mohammed.dart';
 import '../features/Home/presention/views/SettingView/views/AzkarNot/azkar_not_view.dart';
 import '../features/Home/presention/views/SettingView/views/AzkarNot/evening/evening_not_view.dart';
 import '../features/Home/presention/views/SettingView/views/AzkarNot/morning/morning_view.dart';
@@ -175,6 +176,9 @@ class AppRouter {
 
       case EveningNotView.routeName:
         return MaterialPageRoute(builder: (_) => const EveningNotView());
+
+      case DhikrMohammed.routeName:
+        return MaterialPageRoute(builder: (_) => const DhikrMohammed());
 
       default:
         return _errorRoute();

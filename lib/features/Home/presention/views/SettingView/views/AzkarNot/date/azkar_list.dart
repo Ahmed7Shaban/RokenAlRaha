@@ -20,17 +20,24 @@ final List<ServiceItem> AzkarList = [
     label: ' المساء',
     route: Routes.EveningNot,
   ),
+  //
+  // ServiceItem(
+  //   iconPath: Assets.imagesGetUp,
+  //   label: ' الاستيقاظ',
+  //   route: Routes.WakeUpAzkar,
+  // ),
+  // ServiceItem(
+  //   iconPath: Assets.imagesSleep,
+  //   label: ' النوم',
+  //   route: Routes.SleepAzkar,
+  // ),
+  ServiceItem(
+    iconPath: Assets.muhammad,
+    label: " صلاة على النبي",
+    route: Routes.DhikrMohammed,
+  ),
 
-  ServiceItem(
-    iconPath: Assets.imagesGetUp,
-    label: ' الاستيقاظ',
-    route: Routes.WakeUpAzkar,
-  ),
-  ServiceItem(
-    iconPath: Assets.imagesSleep,
-    label: ' النوم',
-    route: Routes.SleepAzkar,
-  ),
+
 
 
 
