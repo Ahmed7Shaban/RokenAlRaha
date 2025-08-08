@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -63,7 +64,10 @@ Future<void> main() async {
   await Hive.openBox<SurahModel>(surahs);
   await openAllCachedAyahBoxes();
 
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+
+  );
 }
 
 

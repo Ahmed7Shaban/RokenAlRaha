@@ -99,7 +99,7 @@ class DailyMessageNotificationService {
 
   tz.TZDateTime _nextInstanceOfTime(TimeOfDay time) {
     final now = DateTime.now();
-    final localLocation = tz.getLocation('Africa/Cairo');
+    final localLocation = tz.local;
     final nowTZ = tz.TZDateTime.from(now, localLocation);
 
     tz.TZDateTime scheduled = tz.TZDateTime(

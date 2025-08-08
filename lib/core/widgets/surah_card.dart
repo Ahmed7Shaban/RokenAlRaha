@@ -9,6 +9,7 @@ import '../theme/app_text_styles.dart';
 class SurahCard extends StatelessWidget {
   final SurahModel surah;
   final VoidCallback onTap;
+
   const SurahCard({super.key, required this.surah, required this.onTap});
 
   @override
@@ -17,13 +18,23 @@ class SurahCard extends StatelessWidget {
         ? Assets.imagesKaaba
         : Assets.imagesMosque;
 
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // نحدد أحجام نسبية حسب حجم الشاشة
+    final paddingH = screenWidth * 0.060;   //
+    final paddingV = screenHeight * 0.0278;
+
+    final iconSize = screenWidth * 0.07; // 7% من العرض
+    final textSize = screenWidth * 0.06; // 6% من العرض
+    final spacing = screenWidth * 0.08;
+
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: EdgeInsets.all(screenWidth * 0.03), // حوالي 12px عادي
       child: InkWell(
         onTap: onTap,
-
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+          padding: EdgeInsets.symmetric(horizontal: paddingH, vertical: paddingV),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             gradient: const LinearGradient(
@@ -40,22 +51,27 @@ class SurahCard extends StatelessWidget {
                   children: [
                     Text(
                       surah.name,
-                      style: AppTextStyles.titleStyle.copyWith(fontSize: 26),
+                      style: AppTextStyles.titleStyle.copyWith(fontSize: textSize),
                     ),
-                    const SizedBox(width: 35),
-                    Image.asset(iconPath, width: 30),
+                    SizedBox(width: spacing),
+                    Image.asset(iconPath, width: iconSize),
                   ],
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: screenWidth * 0.02),
               Stack(
-
                 alignment: Alignment.center,
                 children: [
-                  SvgPicture.asset(Assets.imagesNumberAya),
+                  SvgPicture.asset(
+                    Assets.imagesNumberAya,
+                    width: screenWidth * 0.08,
+                  ),
                   Text(
                     surah.number.toString(),
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: screenWidth * 0.035,
+                    ),
                   ),
                 ],
               ),

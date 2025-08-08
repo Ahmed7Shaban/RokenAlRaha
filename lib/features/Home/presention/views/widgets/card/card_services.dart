@@ -16,33 +16,49 @@ class CardServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // احصل على أبعاد الشاشة
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // استخدم قيم متناسبة مع حجم الشاشة
+    final containerSize = screenWidth * 0.23; // حجم الصندوق
+    final imageSize = containerSize * 0.5;    // حجم الأيقونة
+    final fontSize = screenWidth * 0.035;     // حجم الخط
+
     return GestureDetector(
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 100,
-            height: 100,
+            width: containerSize,
+            height: containerSize,
             decoration: BoxDecoration(
               color: const Color(0xFFF2ECFF),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(screenWidth * 0.04),
             ),
             child: Center(
-              child: Image.asset(item.iconPath, width: 50, height: 50),
+              child: Image.asset(
+                item.iconPath,
+                width: imageSize,
+                height: imageSize,
+              ),
             ),
           ),
-          const SizedBox(height: 6),
-          Text(
-            item.label,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.cairo(
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-              color: const Color(0xFF4A4A4A),
-              height: 1.3,
+          SizedBox(height: screenHeight * 0.01),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              item.label,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.cairo(
+                fontSize: fontSize,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF4A4A4A),
+                height: 1.3,
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
