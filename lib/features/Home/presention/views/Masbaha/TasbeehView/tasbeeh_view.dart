@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../routes/routes.dart';
+import '../date/tasbeeh_list.dart';
 import '../widget/masbaha_body.dart';
-import 'date/tasbeeh_list.dart';
 
 
 class TasbeehView extends StatelessWidget {

@@ -135,9 +135,12 @@ class _SurahDetailViewState extends State<SurahDetailView> {
         title: Text(_surahName, style: AppTextStyles.appBarTitleStyle),
         centerTitle: true,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF5E17EB), Color(0xFF3A0CA3)],
+              colors: [
+                const Color(0xFF261B3D),
+               AppColors. primaryColor
+              ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
@@ -172,26 +175,45 @@ class _SurahDetailViewState extends State<SurahDetailView> {
                 textAlign: TextAlign.justify,
                 text: TextSpan(
                   children: ayahs.map((ayah) {
-                    final isSelected =
-                        selectedAyahNumber == ayah.numberInSurah;
+                    final isSelected = selectedAyahNumber == ayah.numberInSurah;
 
-                    return TextSpan(
-                      text: '${ayah.text} ﴿${ayah.numberInSurah}﴾ ',
-                      style: AppTextStyles.ayahTextStyle.copyWith(
-                        backgroundColor: isSelected
-                            ? Colors.yellow.withOpacity(0.3)
-                            : null,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => _selectAyah(
-                          context,
-                          ayah.numberInSurah,
-                          selectedAyahNumber,
-                              (val) => setState(() => selectedAyahNumber = val),
-                          ayahs,
+                    return [
+                      TextSpan(
+                        text: ayah.text + ' ',
+                        style: AppTextStyles.ayahTextStyle.copyWith(
+                          backgroundColor: isSelected
+                              ? Colors.yellow.withOpacity(0.3)
+                              : null,
                         ),
-                    );
-                  }).toList(),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => _selectAyah(
+                            context,
+                            ayah.numberInSurah,
+                            selectedAyahNumber,
+                                (val) => setState(() => selectedAyahNumber = val),
+                            ayahs,
+                          ),
+                      ),
+                      TextSpan(
+                        text: '﴿${ayah.numberInSurah}﴾ ',
+                        style: AppTextStyles.ayahTextStyle.copyWith(
+                          color: AppColors.goldenYellow,
+                          fontWeight: FontWeight.bold,
+                          backgroundColor: isSelected
+                              ? Colors.yellow.withOpacity(0.3)
+                              : null,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => _selectAyah(
+                            context,
+                            ayah.numberInSurah,
+                            selectedAyahNumber,
+                                (val) => setState(() => selectedAyahNumber = val),
+                            ayahs,
+                          ),
+                      ),
+                    ];
+                  }).expand((e) => e).toList(),
                 ),
               ),
             );

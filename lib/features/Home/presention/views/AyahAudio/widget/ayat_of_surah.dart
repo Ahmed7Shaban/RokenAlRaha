@@ -29,7 +29,8 @@ class AyatOfSurah extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF5E17EB), Color(0xFF3A0CA3)],
+              colors: [          const Color(0xFF261B3D),
+                AppColors. primaryColor],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),

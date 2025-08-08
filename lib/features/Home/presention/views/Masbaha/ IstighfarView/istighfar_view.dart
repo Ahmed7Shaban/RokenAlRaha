@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../routes/routes.dart';
-import '../TasbeehView/date/istighfar_list.dart';
+import '../date/istighfar_list.dart';
 import '../widget/masbaha_body.dart';
 
 class IstighfarView extends StatelessWidget {
