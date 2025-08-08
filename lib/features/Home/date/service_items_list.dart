@@ -92,4 +92,24 @@ final List<ServiceItem> serviceItemsList = [
     label: "الأذكار ",
     route: Routes.AllAzkar,
   ),
+  ServiceItem(
+    iconPath: Assets.imagesKaaba,
+    label: "القبلة ",
+    route: Routes.QiblahView,
+  ),
+  ServiceItem(
+    iconPath: Assets.mosque1,
+    label: "مواقيت الصلاة ",
+    route: Routes.PrayerTimes,
+  ),
+  ServiceItem(
+    iconPath: Assets.setting,
+    label: "الإعدادات ",
+    route: Routes.setting,
+  ),
+  ServiceItem(
+    iconPath: Assets.apps,
+    label: "تطبيقاتنا ",
+    route: Routes.apps,
+  ),
 ];

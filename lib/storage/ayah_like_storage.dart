@@ -1,8 +1,9 @@
 import 'package:hive/hive.dart';
+import '../constants.dart';
 import '../features/Home/presention/views/ayah_liked/model/ayah_like_model.dart';
 
 class AyahLikeStorage {
-  static const String _boxName = 'likedAyahs';
+  static const String _boxName = likedAyahs;
 
   /// فتح أو إنشاء البوكس
   static Future<Box<AyahLikeModel>> _openBox() async {
@@ -43,10 +44,13 @@ class AyahLikeStorage {
 
   static Future<int?> getAyahIndex(String surahName, int ayahNumber) async {
     final box = await _openBox();
-    final index = box.values.toList().indexWhere(
-          (a) => a.surahName == surahName && a.ayahNumber == ayahNumber,
-    );
-    return index == -1 ? null : index;
+    final iterable = box.values;
+    int i = 0;
+    for (var a in iterable) {
+      if (a.surahName == surahName && a.ayahNumber == ayahNumber) return i;
+      i++;
+    }
+    return null;
   }
 
 }

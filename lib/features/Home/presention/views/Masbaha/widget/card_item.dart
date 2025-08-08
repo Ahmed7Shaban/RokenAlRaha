@@ -3,6 +3,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/container_widget.dart';
 import '../../../../../../source/app_images.dart';
 
 class CardItem extends StatelessWidget {
@@ -25,24 +26,7 @@ class CardItem extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.pureWhite, AppColors.primaryColor],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
-            ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.goldenYellow, width: 2),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
+        child: ContainerWidget(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

@@ -4,6 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../source/app_images.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
+import 'container_widget.dart';
 
 class ZikrItem extends StatefulWidget {
   final String title;
@@ -56,7 +57,7 @@ class _ZikrItemState extends State<ZikrItem> with SingleTickerProviderStateMixin
   }
 
   void _handleBottomTap() {
-    if (_count == 0) return; // لو وصل 0، بطل الضغط
+    if (_count == 0) return;
 
     setState(() {
       _count--;
@@ -67,7 +68,7 @@ class _ZikrItemState extends State<ZikrItem> with SingleTickerProviderStateMixin
 
   void _handleLongPress() {
     setState(() {
-      _count = widget.initialCount; // إعادة تعيين
+      _count = widget.initialCount;
     });
   }
 
@@ -77,23 +78,7 @@ class _ZikrItemState extends State<ZikrItem> with SingleTickerProviderStateMixin
       padding: const EdgeInsets.all(20.0),
       child: GestureDetector(
         onTap: widget.onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.pureWhite, AppColors.primaryColor],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
-            ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.goldenYellow, width: 2),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
+        child:ContainerWidget(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

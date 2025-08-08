@@ -32,5 +32,13 @@ class Routes {
   static const String IstikharaAzkar = '/IstikharaAzkar';
   static const String RainAzkar = '/RainAzkar';
   static const String Azkary = '/Azkary';
+  static const String QiblahView = '/QiblahView';
+  static const String apps = '/AppsLink';
+  static const String PrayerTimes = '/PrayerTimes';
+  static const String setting = '/setting';
+  static const String prayerNot = '/prayerNot';
+  static const String AzkarNot = '/AzkarNot';
+  static const String MorningNot = '/MorningNot';
+  static const String EveningNot = '/EveningNot';
 
 }

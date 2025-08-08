@@ -48,6 +48,7 @@ final String ayahText ;
                       ayahNumber: ayahNumber,
                       surahName: surahName,
                       ayahText: ayahText,
+                      audioUrl: audioUrl,
                     );
 
                     context.read<AyahLikeCubit>().toggleLike(likedAyah);

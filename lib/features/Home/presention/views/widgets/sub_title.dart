@@ -13,6 +13,8 @@ final String subTitle ;
         subTitle ,
         style: AppTextStyles.sectionTitle,
         textAlign: TextAlign.right,
+        maxLines: 4,
+
       ),
     );
   }

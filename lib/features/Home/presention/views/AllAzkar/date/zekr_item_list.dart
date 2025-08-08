@@ -15,7 +15,7 @@ final List<ServiceItem> zekrItemList = [
 
   ServiceItem(
     iconPath: Assets.imagesNight,
-    label: 'أذكار المساء',
+    label: ' المساء',
     route: Routes.EveningAzkar,
   ),
 

@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/container_widget.dart';
 import '../../../../../../source/app_images.dart';
 
 class MasbahaItem extends StatelessWidget {
@@ -29,23 +30,7 @@ class MasbahaItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [AppColors.pureWhite, AppColors.primaryColor],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-          ),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.goldenYellow, width: 2),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 6,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
+      child: ContainerWidget(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

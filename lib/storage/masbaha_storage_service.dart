@@ -1,8 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../model/masbaha_model.dart';
+import '../constants.dart';
+import '../features/Home/presention/views/SaveMasbaha/model/masbaha_model.dart';
 
 class MasbahaStorageService {
-  static const String _boxName = 'MasbahaBox';
+  static const String _boxName = Masbaha;
 
   Future<void> saveMasbaha({
     required String title,

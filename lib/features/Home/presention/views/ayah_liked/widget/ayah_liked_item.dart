@@ -7,6 +7,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../../../../../core/theme/app_colors.dart';
 import '../../../../../../../../core/theme/app_text_styles.dart';
 import '../../../../../../../../source/app_images.dart';
+import '../../../../../../core/widgets/container_widget.dart';
 import '../../AyahAudio/cubit/audio_player_cubit.dart';
 import '../../AyahAudio/widget/ayah_audio_player.dart';
 import '../model/ayah_like_model.dart';
@@ -23,6 +24,8 @@ class AyahLikedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final audioCubit = context.read<AudioPlayerCubit>();
+
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Dismissible(
@@ -44,27 +47,10 @@ class AyahLikedItem extends StatelessWidget {
         onDismissed: (_) {
           if (onDeleted != null) onDeleted!();
         },
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.pureWhite, AppColors.primaryColor],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
-            ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.goldenYellow, width: 2),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
+        child: ContainerWidget(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Title + Share
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
@@ -109,7 +95,6 @@ class AyahLikedItem extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
 
               Container(
                 height: 90,
@@ -132,10 +117,17 @@ class AyahLikedItem extends StatelessWidget {
                 ),
               ),
 
-              // AyahAudioPlayer(
-              //   audioUrl: ayahLikeModel.audioUrl,
-              //   audioCubit: context.read<AudioPlayerCubit>(),
-              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                child: BlocProvider.value(
+                  value: audioCubit,
+                  child: AyahAudioPlayer(
+                    audioUrl: ayahLikeModel.audioUrl,
+                    audioCubit: audioCubit,
+                  ),
+                ),
+              ),
+
             ],
           ),
         ),

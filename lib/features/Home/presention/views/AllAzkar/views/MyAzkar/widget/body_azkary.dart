@@ -19,6 +19,12 @@ class _BodyAzkaryState extends State<BodyAzkary> {
   List zikrList = [];
 
   @override
+  void initState() {
+    super.initState();
+    context.read<ZikrCubit>().loadZikr();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -27,54 +33,47 @@ class _BodyAzkaryState extends State<BodyAzkary> {
           child: BlocConsumer<ZikrCubit, ZikrState>(
             listener: (context, state) {
               if (state is ZikrLoaded) {
-                zikrList = List.from(state.zikrList);
+                final newList = state.zikrList;
+
+                setState(() {
+                  if (newList.length > zikrList.length) {
+                    final newItem = newList.first;
+                    zikrList.insert(0, newItem);
+                    _listKey.currentState?.insertItem(0);
+                  } else if (newList.length < zikrList.length) {
+                    zikrList = List.from(newList);
+                  } else {
+                    zikrList = List.from(newList);
+                  }
+                });
               }
             },
             builder: (context, state) {
-              if (state is ZikrLoading) {
-                return const LottieLoader();
-              }
 
               if (state is ZikrError) {
                 return Center(child: Text(state.message));
               }
 
               if (state is ZikrLoaded) {
-                if (state.zikrList.isEmpty) {
-                  return const EmptyList();
-                }
+                final list = state.zikrList;
+                if (list.isEmpty) return const EmptyList();
 
-                return AnimatedList(
-                  key: _listKey,
+                return ListView.builder(
                   padding: const EdgeInsets.all(16),
-                  initialItemCount: zikrList.length,
-                  itemBuilder: (context, index, animation) {
-                    final zikr = zikrList[index];
-                    return SizeTransition(
-                      sizeFactor: animation,
-                      child: ZikryItem(
-                        zikr: zikr,
-                        onDeleted: () {
-                          final key = zikr.key as int;
-
-                          // حذف فعلي من AnimatedList
-                          _listKey.currentState?.removeItem(
-                            index,
-                                (context, animation) => SizeTransition(
-                              sizeFactor: animation,
-                              child: ZikryItem(zikr: zikr),
-                            ),
-                            duration: const Duration(milliseconds: 300),
-                          );
-
-                          // حذف من Cubit
-                          context.read<ZikrCubit>().deleteZikr(key);
-                        },
-                      ),
+                  itemCount: list.length,
+                  itemBuilder: (context, index) {
+                    final zikr = list[index];
+                    return ZikryItem(
+                      zikr: zikr,
+                      onDeleted: () {
+                        final key = zikr.key as int;
+                        context.read<ZikrCubit>().deleteZikr(key);
+                      },
                     );
                   },
                 );
               }
+
 
               return const SizedBox();
             },

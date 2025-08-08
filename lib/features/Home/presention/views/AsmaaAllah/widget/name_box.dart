@@ -3,6 +3,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
+import '../../../../../../core/widgets/container_widget.dart';
 import '../../../../../../source/app_images.dart';
 import '../asmaa_name_detail_view.dart';
 import '../model/asmaa_name_model.dart';
@@ -10,10 +11,7 @@ import '../model/asmaa_name_model.dart';
 class NameBox extends StatelessWidget {
   final AsmaaAllahModel model;
 
-  const NameBox({
-    super.key,
-   required this.model,
-  });
+  const NameBox({super.key, required this.model});
 
   void _shareContent() {
     Share.share(model.name);
@@ -24,36 +22,18 @@ class NameBox extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: GestureDetector(
-      onTap: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(
-    builder: (_) => AsmaaNameDetailView(model: model),
-    ),
-    );
-    },
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.pureWhite, AppColors.primaryColor],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => AsmaaNameDetailView(model: model),
             ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.goldenYellow, width: 2),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
+          );
+        },
+        child: ContainerWidget(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
@@ -76,12 +56,14 @@ class NameBox extends StatelessWidget {
                       ),
                     ),
 
-
                     GestureDetector(
                       onTap: _shareContent,
-                      child: Image(image: AssetImage(Assets.share,),width: 50,
-                        height: 50,),),
-
+                      child: Image(
+                        image: AssetImage(Assets.share),
+                        width: 50,
+                        height: 50,
+                      ),
+                    ),
                   ],
                 ),
               ),

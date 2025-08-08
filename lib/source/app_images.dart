@@ -2,9 +2,7 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesBackgroundAyah
-  /// assets/Images/backgroundAyah.jpg
-  static const String imagesBackgroundAyah = "assets/Images/backgroundAyah.jpg";
+
 
   /// Assets for imagesBackgroundSplash
   /// assets/Images/backgroundSplash.jpg
@@ -18,9 +16,25 @@ class Assets {
   /// assets/Images/draw.png
   static const String imagesDraw = "assets/Images/draw.png";
 
+  /// Assets for prayerA
+  /// assets/Images/prayerA.png
+  static const String prayerA = "assets/Images/prayerA.png";
+
+  /// Assets for notOff
+  /// assets/Images/notOff.jpg
+  static const String notOff = "assets/Images/notOff.png";
+
+  /// Assets for notOn
+  /// assets/Images/notOn.jpg
+  static const String notOn = "assets/Images/notOn.png";
+
   /// Assets for imagesGetUp
   /// assets/Images/getUp.png
   static const String imagesGetUp = "assets/Images/getUp.png";
+
+  /// Assets for setting
+  /// assets/Images/setting.png
+  static const String setting = "assets/Images/setting.png";
 
   /// Assets for imagesHeadphones
   /// assets/Images/headphones.png
@@ -189,5 +203,30 @@ class Assets {
   /// Assets for note
   /// assets/Images/note.png
   static const String note = "assets/Images/note.png";
+
+  /// Assets for compass
+  /// assets/Images/compass.png
+  static const String compass = "assets/Images/compass.png";
+
+  /// Assets for apps
+  /// assets/Images/apps.png
+  static const String apps = "assets/Images/apps.png";
+
+
+  /// Assets for afternoon
+  /// assets/Images/afternoon.svg
+  static const String afternoon = "assets/Images/afternoon.svg";
+
+  /// Assets for morning
+  /// assets/Images/morning.svg
+  static const String morning = "assets/Images/morning.svg";
+
+  /// Assets for night
+  /// assets/Images/night.svg
+  static const String night = "assets/Images/night.svg";
+
+  /// Assets for sunset
+  /// assets/Images/sunset.svg
+  static const String sunset = "assets/Images/sunset.svg";
 }
 

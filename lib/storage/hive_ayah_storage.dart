@@ -1,8 +1,9 @@
 import 'package:hive/hive.dart';
+import '../constants.dart';
 import '../models/ayah_model.dart';
 
 class HiveAyahStorage {
-  static const String _boxPrefix = 'ayahsBox';
+  static const String _boxPrefix = ayahs;
 
   Future<void> cacheAyahs(int surahNumber, List<AyahModel> ayahs) async {
     final box = await Hive.openBox('ayahsBox-$surahNumber');

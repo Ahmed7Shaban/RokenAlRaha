@@ -1,10 +1,10 @@
-// lib/core/storage/hive_quran_storage.dart
 
 import 'package:hive/hive.dart';
 import '../../models/surah_model.dart';
+import '../constants.dart';
 
 class HiveQuranStorage {
-  static const _surahBoxName = 'surahsBox';
+  static const _surahBoxName = surahs;
 
   static List<SurahModel> getCachedSurahs() {
     final box = Hive.box<SurahModel>(_surahBoxName);
