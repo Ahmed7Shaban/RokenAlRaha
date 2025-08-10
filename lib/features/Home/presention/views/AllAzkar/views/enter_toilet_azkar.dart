@@ -11,7 +11,14 @@ class EnterToiletAzkar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: BodyForAllAzkar(list: toiletEntryDuas , title: 'دخول الخلاء') ,
+      body: BodyForAllAzkar(list: toiletEntryDuas , title: 'دخول الخلاء',
+        specialCounts: {
+          4: 3,
+          3: 9,
+          5: 7,
+          6: 2,
+          8: 4,
+        },) ,
     );
   }
 }

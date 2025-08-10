@@ -11,11 +11,6 @@ final List<ServiceItem> SettingList = [
     label: ' الأذان',
     route: Routes.prayerNot,
   ),
-  ServiceItem(
-    iconPath: Assets.tasbihList,
-    label: ' إشعارات الاذكار',
-    route: Routes.AzkarNot,
-  ),
 
 
 ];

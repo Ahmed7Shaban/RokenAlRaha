@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../../core/widgets/location_text_widget.dart';
 import 'hijri_date_text.dart';
 import 'prayer_times_box.dart';
@@ -19,6 +20,7 @@ class PrayerTimesBody extends StatelessWidget {
 
           const SizedBox(height: 5),
           const TimeNowText(),
+          const BannerAdWidget(),
 
           const Spacer(),
 

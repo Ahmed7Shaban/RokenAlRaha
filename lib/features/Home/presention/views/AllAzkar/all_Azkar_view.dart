@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../core/widgets/appbar_widget.dart';
 import '../../../../../routes/routes.dart';
 import '../widgets/card/services_grid.dart';
@@ -20,7 +21,7 @@ class AllAzkarView extends StatelessWidget {
         child: Column(
           children: [
             AppbarWidget(title: ' الأذكار'),
-
+            const BannerAdWidget(),
             const SizedBox(height: 12),
             //
             // const DynamicContentBox().animate()

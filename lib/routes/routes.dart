@@ -37,9 +37,6 @@ class Routes {
   static const String PrayerTimes = '/PrayerTimes';
   static const String setting = '/setting';
   static const String prayerNot = '/prayerNot';
-  static const String AzkarNot = '/AzkarNot';
-  static const String MorningNot = '/MorningNot';
-  static const String EveningNot = '/EveningNot';
-  static const String DhikrMohammed = '/DhikrMohammed';
+
 
 }

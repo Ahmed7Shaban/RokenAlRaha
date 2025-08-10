@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:roken_raha/source/app_lottie.dart';
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/widgets/lottie_loader.dart';
 import '../cubit/audio_player_cubit.dart';
@@ -117,7 +118,7 @@ class _AyahAudioPlayerState extends State<AyahAudioPlayer>
                     const LottieLoader(width: 30, height: 30)
                   else
                 Lottie.asset(
-                  "assets/lottie/AudioPlaying.json",
+                 AppLottie.AudioPlaying,
                   width: 50,
                   height: 50,
                 )

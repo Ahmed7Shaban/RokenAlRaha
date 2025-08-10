@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:roken_raha/core/theme/app_colors.dart';
+import 'package:roken_raha/source/app_lottie.dart';
 
 import '../../../../../routes/routes.dart';
 import 'widget/qiblah_compass.dart';
@@ -52,7 +53,7 @@ class _QiblahViewState extends State<QiblahView> {
       child: AlertDialog(
         backgroundColor: AppColors.pureWhite,
         title: Lottie.asset(
-          'assets/lottie/Location.json',
+          AppLottie.Location,
           width: 80,
           height: 80,
           repeat: true,
@@ -72,7 +73,9 @@ class _QiblahViewState extends State<QiblahView> {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
             onPressed: _checkPermissions,
             child: Text(
@@ -96,8 +99,7 @@ class _QiblahViewState extends State<QiblahView> {
             ),
           ),
         ],
-      )
+      ),
     );
-
   }
 }

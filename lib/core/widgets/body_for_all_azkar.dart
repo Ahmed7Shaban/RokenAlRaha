@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../ads/widgets/banner_ad_widget.dart';
 import 'appbar_widget.dart';
 import 'zikr_item.dart';
 
@@ -23,6 +24,8 @@ class BodyForAllAzkar extends StatelessWidget {
     return Column(
       children: [
         AppbarWidget(title: title),
+        const BannerAdWidget(),
+
         Expanded(
           child: ListView.builder(
             itemCount: list.length,

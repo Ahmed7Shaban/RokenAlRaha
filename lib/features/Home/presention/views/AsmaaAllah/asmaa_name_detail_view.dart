@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:roken_raha/core/theme/app_colors.dart';
 import 'package:roken_raha/core/widgets/appbar_widget.dart';
 
+import '../../../../../core/ads/widgets/banner_ad_widget.dart';
 import 'model/asmaa_name_model.dart';
 import 'widget/detail_box.dart';
 
@@ -25,6 +26,7 @@ class AsmaaNameDetailView extends StatelessWidget {
             curve: Curves.easeOut,
             duration: 300.ms,
           ),
+          const BannerAdWidget(),
 
 
           Padding(

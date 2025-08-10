@@ -11,7 +11,15 @@ class SleepAzkar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: BodyForAllAzkar(list: sleepAzkar, title: ' أذكار النوم '),
+      body: BodyForAllAzkar(list: sleepAzkar, title: ' أذكار النوم ',   specialCounts: {
+        4: 3,
+        3: 9,
+        5: 7,
+        6: 2,
+        10: 5,
+        7: 100,
+
+      },),
     );
   }
 }

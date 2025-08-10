@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../../core/widgets/appbar_widget.dart';
 import '../cubit/masbaha_cubit.dart';
 import 'card_item.dart';
@@ -22,6 +23,8 @@ class MasbahaBody extends StatelessWidget {
     return Column(
       children: [
         AppbarWidget(title: title),
+        const BannerAdWidget(),
+
         Expanded(
           child: ListView.builder(
             itemCount: list.length,

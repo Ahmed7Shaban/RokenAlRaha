@@ -31,10 +31,7 @@ import '../features/Home/presention/views/Ruqyah/ruqyah_view.dart';
 import '../features/Home/presention/views/SaveMasbaha/save_masbaha_view.dart';
 import '../features/Home/presention/views/SettingView/setting_view.dart';
 import '../features/Home/presention/views/SettingView/views/Adhan/adhan_view.dart';
-import '../features/Home/presention/views/SettingView/views/AzkarNot/DhikrMohammed/dhikr_mohammed.dart';
-import '../features/Home/presention/views/SettingView/views/AzkarNot/azkar_not_view.dart';
-import '../features/Home/presention/views/SettingView/views/AzkarNot/evening/evening_not_view.dart';
-import '../features/Home/presention/views/SettingView/views/AzkarNot/morning/morning_view.dart';
+
 import '../features/Home/presention/views/SpecialAzkar/DuaYunus/dua_yunus_view.dart';
 import '../features/Home/presention/views/SpecialAzkar/Hawqalah/hawqalah_view.dart';
 import '../features/Home/presention/views/SpecialAzkar/SalatAlaNabi/salat_alnabi_view.dart';
@@ -168,17 +165,6 @@ class AppRouter {
       case AdhanView.routeName:
         return MaterialPageRoute(builder: (_) => const AdhanView());
 
-      case AzkarNotView.routeName:
-        return MaterialPageRoute(builder: (_) => const AzkarNotView());
-
-      case MorningNotView.routeName:
-        return MaterialPageRoute(builder: (_) => const MorningNotView());
-
-      case EveningNotView.routeName:
-        return MaterialPageRoute(builder: (_) => const EveningNotView());
-
-      case DhikrMohammed.routeName:
-        return MaterialPageRoute(builder: (_) => const DhikrMohammed());
 
       default:
         return _errorRoute();

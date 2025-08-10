@@ -10,7 +10,15 @@ class MorningAzkar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: BodyForAllAzkar(list: morningAzkar, title: 'أذكار الصباح'),
+      body: BodyForAllAzkar(list: morningAzkar, title: 'أذكار الصباح',   specialCounts: {
+        4: 3,
+        3: 9,
+        5: 7,
+        6: 2,
+        10: 2,
+        15: 2,
+
+      },),
     );
   }
 }

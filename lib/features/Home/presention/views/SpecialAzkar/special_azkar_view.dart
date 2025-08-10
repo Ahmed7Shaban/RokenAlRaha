@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:roken_raha/core/widgets/appbar_widget.dart';
+import 'package:roken_raha/source/app_lottie.dart';
 
+import '../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../core/widgets/count_action.dart';
 import '../../../../../core/widgets/count_text.dart';
 import 'widget/zkar_card.dart';
@@ -35,7 +37,8 @@ class _SpecialAzkarViewState extends State<SpecialAzkarView> {
         children: [
           AppbarWidget(title: widget.title),
           const SizedBox(height: 10),
-      
+          const BannerAdWidget(),
+
           CountText(
             count: _count.toString(),
             action: _action,
@@ -43,7 +46,9 @@ class _SpecialAzkarViewState extends State<SpecialAzkarView> {
       
           const SizedBox(height: 10),
       
-          Lottie.asset("assets/lottie/dua.json", width: 200, height: 200),
+          Lottie.asset(
+              AppLottie.dua,
+              width: 200, height: 200),
       
           const SizedBox(height: 10),
       

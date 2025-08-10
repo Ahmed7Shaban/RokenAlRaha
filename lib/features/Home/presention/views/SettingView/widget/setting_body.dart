@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../../core/widgets/appbar_widget.dart';
 import '../../widgets/card/services_grid.dart';
 import '../../widgets/sub_title.dart';
@@ -14,6 +15,7 @@ class SettingBody extends StatelessWidget {
     return Column(
       children: [
         AppbarWidget(title: "الإعدادات"),
+        const BannerAdWidget(),
 
         Padding(
           padding: const EdgeInsets.all(15.0),

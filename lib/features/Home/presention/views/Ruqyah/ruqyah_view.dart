@@ -11,10 +11,12 @@ class RuqyahView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyForAllAzkar(list: ruqyahList, title: "الرُقية الشرعية ",specialCounts: {
+      body: BodyForAllAzkar(list: ruqyahList, title: "الرُقية الشرعية ",
+        specialCounts: {
         0: 3,
         13: 7,
-      },),
+      },
+      ),
     );
   }
 }

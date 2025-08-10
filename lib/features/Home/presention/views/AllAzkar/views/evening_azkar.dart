@@ -11,7 +11,19 @@ class EveningAzkar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: BodyForAllAzkar(list: eveningAzkar , title: 'أذكار المساء '),
+      body: BodyForAllAzkar(list: eveningAzkar , title: 'أذكار المساء ',
+        specialCounts: {
+        4: 3,
+        3: 9,
+        5: 7,
+        6: 2,
+        8: 4,
+        10: 4,
+        12: 6,
+        17: 3,
+        19: 6,
+      },
+      ),
     );
   }
 }

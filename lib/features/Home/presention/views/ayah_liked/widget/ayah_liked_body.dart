@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roken_raha/core/widgets/empty_list.dart';
 
+import '../../../../../../core/ads/widgets/banner_ad_widget.dart';
 import '../../../../../../core/widgets/appbar_widget.dart';
 import '../../../../../../core/widgets/lottie_loader.dart';
 import '../cubit/ayah_like_cubit.dart';
@@ -14,6 +15,8 @@ class AyahLikedBody extends StatelessWidget {
     return Column(
       children: [
         AppbarWidget(title: "الأيات المفضلة"),
+        const BannerAdWidget(),
+
         Expanded(
           child: BlocBuilder<AyahLikeCubit, AyahLikeState>(
             builder: (context, state) {

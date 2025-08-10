@@ -68,6 +68,7 @@ dependencies:
   flutter_time_picker_spinner: ^2.0.0
   device_preview: ^1.3.1
   showcaseview: ^4.0.1
+  google_mobile_ads: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -98,14 +99,8 @@ flutter:
     - assets/icon/icon.png
     - assets/Images/
     - assets/Sounds/
-    - assets/lottie/Audio.json
     - assets/lottie/levelUp.json
-    - assets/lottie/Bead.json
     - assets/lottie/loading.json
-    - assets/lottie/Star1.json
-    - assets/lottie/Star2.json
-    - assets/lottie/Star3.json
-    - assets/lottie/StarTop.json
     - assets/lottie/EmptyList.json
     - assets/lottie/DeleteIcon.json
     - assets/lottie/select.json
@@ -114,6 +109,8 @@ flutter:
     - assets/lottie/dua.json
     - assets/lottie/AudioPlaying.json
     - assets/lottie/Location.json
+    - assets/lottie/Confetti.json
+    - assets/lottie/beads.json
 
     # - assets/Sounds/StartSound.mp3
     

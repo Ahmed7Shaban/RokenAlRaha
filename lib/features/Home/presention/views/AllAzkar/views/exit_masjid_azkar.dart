@@ -11,7 +11,14 @@ class ExitMasjidAzkar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: BodyForAllAzkar(list: exitMasjidAzkar , title: 'خروج من المسجد') ,
+      body: BodyForAllAzkar(list: exitMasjidAzkar , title: 'خروج من المسجد',
+        specialCounts: {
+        4: 3,
+        3: 9,
+        5: 7,
+        6: 2,
+
+      },) ,
     );
   }
 }

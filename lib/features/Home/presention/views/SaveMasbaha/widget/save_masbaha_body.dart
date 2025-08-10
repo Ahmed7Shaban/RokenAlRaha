@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:roken_raha/core/theme/app_colors.dart';
 import 'package:roken_raha/core/theme/app_text_styles.dart';
+import 'package:roken_raha/source/app_lottie.dart';
 import '../../../../../../core/widgets/empty_list.dart';
 import '../model/masbaha_model.dart';
 import '../widget/masbaha_item.dart';
@@ -72,7 +73,7 @@ class _SaveMasbahaBodyState extends State<SaveMasbahaBody> {
       GestureDetector(
       onTap: deleteSelectedItems,
       child:Lottie.asset(
-        'assets/lottie/select.json',
+        AppLottie.select,
         width: 100,
         height: 100,
       ),
@@ -84,7 +85,7 @@ class _SaveMasbahaBodyState extends State<SaveMasbahaBody> {
                 setState(() => isSelecting = true);
               },
               child: Lottie.asset(
-                'assets/lottie/DeleteIcon.json',
+                AppLottie.DeleteIcon,
                 width: 100,
                 height: 100,
                 // fit: BoxFit.contain,

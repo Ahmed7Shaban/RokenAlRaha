@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../source/app_lottie.dart';
+
 class EmptyList extends StatelessWidget {
   const EmptyList({super.key});
 
@@ -8,7 +10,7 @@ class EmptyList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Lottie.asset(
-        'assets/lottie/EmptyList.json',
+      AppLottie.EmptyList,
         width: 220,
         height: 220,
         fit: BoxFit.contain,

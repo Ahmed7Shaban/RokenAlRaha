@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roken_raha/core/theme/app_colors.dart';
 
+import '../../../../../../../../core/ads/ad_service.dart';
 import 'add_zikr_bottom_sheet.dart';
 
 class FloatingButton extends StatelessWidget {
@@ -10,6 +11,8 @@ class FloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
+        AdService.showInterstitialAd();
+
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,

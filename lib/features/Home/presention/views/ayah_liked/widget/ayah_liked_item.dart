@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:roken_raha/source/app_lottie.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../../../../../../core/theme/app_colors.dart';
@@ -39,7 +40,7 @@ class AyahLikedItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           child: Lottie.asset(
-            'assets/lottie/DeleteIcon.json',
+          AppLottie.DeleteIcon,
             width: 100,
             repeat: false,
           ),
